@@ -21,7 +21,7 @@
                 </ul><br>
             </div>
             <div class="col-sm-9">
-                <h1>Sir Aldrin WWZ mamaya</h1>
+                <h1>LOGO and other details</h1>
             </div>
         </div>
     </div>
