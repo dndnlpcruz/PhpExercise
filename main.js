@@ -12,10 +12,10 @@ $(document).ready(function () {
                 username: username,
                 password: password
             },
-            success: function (res) {                
+            success: function (res) {
                 window.location.replace(res);
-            }, 
-            error: function(){
+            },
+            error: function () {
                 alert("Invalid username or password!");
             }
         });
@@ -31,27 +31,29 @@ $(document).ready(function () {
         var gender = $('#gender').val();
         var course = $('#course').val();
 
-        $.ajax({
-            url: 'registrationDB.php',
-            type: 'POST',
-            data: {
-                username: username,
-                password: password,
-                firstname: firstname,
-                lastname: lastname,
-                gender: gender,
-                course: course
-            },
-            success: function (res) {                
-                window.location.replace(res);
-            }
-        });
+        var varification = confirm("Are you sure, you want to submit your registration?");
+        if (varification == true) {
+            $.ajax({
+                url: 'registrationDB.php',
+                type: 'POST',
+                data: {
+                    username: username,
+                    password: password,
+                    firstname: firstname,
+                    lastname: lastname,
+                    gender: gender,
+                    course: course
+                },
+                success: function (res) {
+                    window.location.replace(res);
+                }
+            });
+        }
     });
-
 
     $(document).on('submit', '#updateForm', function (e) {
         e.preventDefault();
-        
+
         var userid = $('#userID').val();
         var username = $('#username').val();
         var password = $('#password').val();
@@ -60,22 +62,24 @@ $(document).ready(function () {
         var gender = $('#gender').val();
         var course = $('#course').val();
 
-        $.ajax({
-            url: 'modifyDB.php',
-            type: 'POST',
-            data: {
-                userID: userid,
-                username: username,
-                password: password,
-                firstname: firstname,
-                lastname: lastname,
-                gender: gender,
-                course: course
-            },
-            success: function (res) {                
-                window.location.replace(res);
-            }
-        });
+        var varification = confirm("Are you sure, you want to Update?");
+        if (varification == true) {
+            $.ajax({
+                url: 'modifyDB.php',
+                type: 'POST',
+                data: {
+                    userID: userid,
+                    username: username,
+                    password: password,
+                    firstname: firstname,
+                    lastname: lastname,
+                    gender: gender,
+                    course: course
+                },
+                success: function (res) {
+                    window.location.replace(res);
+                }
+            });
+        }
     });
-
 });
