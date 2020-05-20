@@ -16,6 +16,22 @@ if ($aAction == "autocomplete") {
     } else {
         echo "error $sql" . mysqli_error($conn);
     }
+} elseif ($aAction == "searchStudentThenOutput"){ //new aAction // di ko pa maayos hahahaha di makita ung firstname lastname
+    $fullName = explode(" ", $_POST["fullName"]);
+    $firstName = $fullName[0];
+    $lastName = $fullName[1];
+    $sql = "SELECT * FROM student where FirstName='$firstName' and LastName='$lastName'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr> <td>" . $row["ID"] . "</td> <td>" . $row["FirstName"] . " </td> <td> " . $row["LastName"] . " </td> <td> " . $row["Gender"] . " </td> <td> " . $row["Course"] . "</td> </tr>";
+        }
+    } else {
+        echo "error $sql" . mysqli_error($conn);
+    }
+
 } elseif ($aAction == "searchStudentByName") {
     $fullName = explode(" ", $_POST["fullName"]);
     $firstName = $fullName[0];

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+require_once 'authentication.php';
+?>
+
 <html>
 
 <head>
@@ -12,12 +17,13 @@
     <div class="container-fluid">
         <div class="row content">
             <div class="col-sm-3 sidenav">
-                <h4>Junior's Blog</h4>
+                <h4>LOGO</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="homepage.php">Home</a></li>
                     <li><a href="search.php">Search</a></li>
                     <li><a href="registration.php">Register</a></li>
                     <li class="active"><a href="#">Modify</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul><br>
             </div>
             <div class="col-sm-9">
@@ -26,7 +32,7 @@
                     <br />
                     <form id="modifysearch" autocomplete="off" action="/action_page.php">
                         <div class="autocomplete" style="width:300px;">
-                            <input id="modifyInput" type="text" name="searchName" placeholder="Input Name..">
+                            <input id="searchInput" type="text" name="searchName" placeholder="Input Name..">
                         </div>
                         <input id="search" type="submit" value="Search">
                     </form>
@@ -103,6 +109,7 @@
     </div>
 
     <script type="text/javascript" src="search.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 
 </html>

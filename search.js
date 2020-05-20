@@ -116,11 +116,32 @@ $.ajax({
         for (i = 0; i < res.length; i ++) {
             nameRes.push(res[i]);
         }
-        autocomplete(document.getElementById("modifyInput"), nameRes);
+        autocomplete(document.getElementById("searchInput"), nameRes);
     },
     error: function (status) {
         alert("Error" + status);
     }
+});
+
+//for search student
+$('#searchStudent').click(function (e) {
+    e.preventDefault();
+    let textinput = $('#searchInput').val();  
+    $.ajax({
+        type: 'POST',
+        data: {
+            aAction: "searchStudentThenOutput",
+            fullName: textinput
+        },
+        url: 'searchDB.php',
+        success: function (res) {  
+            $("#inputInfo").html("");
+            $("#inputInfo").append(res);
+        },
+        error: function (xhr, status, error) {
+            alert('Error Ni dandan: ' + status);
+        }
+    });
 });
 
 $('#SearchAllButton').click(function (e) {
@@ -133,6 +154,7 @@ $('#SearchAllButton').click(function (e) {
         },
         url: 'searchDB.php',
         success: function (res) {
+            $("#inputInfo").html("");
             $("#inputInfo").append(res);
         },
         error: function (xhr, status, error) {
@@ -159,10 +181,9 @@ $('#SearchButton').click(function () {
     });
 });
 
-//for search student in MODIFY
 $('#search').click(function (e) {
     e.preventDefault();
-    let textinput = $('#modifyInput').val();
+    let textinput = $('#searchInput').val();
     $.ajax({
         url: 'searchDB.php',
         data: {

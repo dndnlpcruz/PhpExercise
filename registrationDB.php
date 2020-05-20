@@ -11,8 +11,7 @@ $sql = "INSERT INTO student(Username, UserPassword, FirstName, LastName, Gender,
 
 if(mysqli_query($conn, $sql)){
     echo "registration.php";
-}
-else{
+} else {
     echo"error $sql" . mysqli_error($conn);
 }
 

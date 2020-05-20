@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+require_once 'authentication.php';
+?>
 <head>
     <?php
     include "cssdesign.php";
@@ -18,10 +20,11 @@
                     <li><a href="search.php">Search</a></li>
                     <li class="active"><a href="#">Register</a></li>
                     <li><a href="modify.php">Modify</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul><br>
             </div>
             <div class="col-sm-9">
-                <h3>Registration Form</h3>
+                <h1>Registration Form</h1>
                 <form id="registrationForm" action="registrationDB.php" method="POST" class="form-horizontal">
                     <div class="form-group">
                         <label for="username" class="control-label col-sm-1">Username:</label>

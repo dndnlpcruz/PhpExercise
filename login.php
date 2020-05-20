@@ -1,5 +1,7 @@
 <?php 
 include "conndb.php";
+session_start();
+
 $username = $_POST["username"];
 $password = $_POST["password"];
 
@@ -8,7 +10,8 @@ $sql = "SELECT * FROM users WHERE userName='$username' AND userPassword='$passwo
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "registration.php";
+  $_SESSION["auth"] = "yes";
+  echo "homepage.php";
 } else {
   echo "index.php";
 }

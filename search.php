@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+require_once 'authentication.php';
+?>
 <html>
 
 <head>
@@ -18,6 +21,7 @@
                     <li class="active"><a href="#">Search</a></li>
                     <li><a href="registration.php">Register</a></li>
                     <li><a href="modify.php">Modify</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul><br>
             </div>
             <div class="col-sm-9">
@@ -28,9 +32,11 @@
                         <br />
                         <form action="searchDB.php" method="GET">
                             <div class="autocomplete" style="width:300px;">
-                                <input type="text" id="textInput" placeholder="Search.." />
+                                <input type="text" id="searchInput" placeholder="Search.." />
                             </div>
-                            <!-- <input id="SearchButton" type="button" value="Search" /> -->
+                            <!-- Search -->
+                            <input id="searchStudent" type="button" value="Search">
+                            <!-- Search All -->
                             <input id="SearchAllButton" type="button" value="Search All" />
                             <br /><br />
                             <table id="MyAjaxTable" style="border: solid">
@@ -48,17 +54,6 @@
                         </form>
                     </div>
                 </div>
-
-                <div>
-                    <br/>
-                    <form autocomplete="off" action="/action_page.php">
-                        <div class="autocomplete" style="width:300px;">
-                            <input id="myInput" type="text" name="searchName" placeholder="Input Name..">
-                        </div>
-                        <input type="submit">
-                    </form>
-                </div>
-
             </div>
         </div>
     </div>

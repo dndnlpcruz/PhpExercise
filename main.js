@@ -47,4 +47,35 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    $(document).on('submit', '#updateForm', function (e) {
+        e.preventDefault();
+        
+        var userid = $('#userID').val();
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var firstname = $('#firstname').val();
+        var lastname = $('#lastname').val();
+        var gender = $('#gender').val();
+        var course = $('#course').val();
+
+        $.ajax({
+            url: 'modifyDB.php',
+            type: 'POST',
+            data: {
+                userID: userid,
+                username: username,
+                password: password,
+                firstname: firstname,
+                lastname: lastname,
+                gender: gender,
+                course: course
+            },
+            success: function (res) {                
+                window.location.replace(res);
+            }
+        });
+    });
+
 });
